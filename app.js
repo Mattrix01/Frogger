@@ -2,13 +2,15 @@ const timeLeftDisplay = document.querySelector("#time-left");
 const resultDisplay = document.querySelector("#result");
 const StartPauseButton = document.querySelector("start-pause-button");
 const squares = document.querySelectorAll(".grid div");
-const logsleft = document.querySelectorAll(".log-left");
+const logsLeft = document.querySelectorAll(".log-left");
 const logsRight = document.querySelectorAll(".log-right");
 const carsLeft = document.querySelectorAll(".car-left");
 const carsRight = document.querySelectorAll(".car-right");
 
 let currentIndex = 76;
 const width = 9;
+let timerId;
+let currentTime = 10;
 console.log(squares);
 
 // passing through event into function (e) seeing which key
@@ -42,15 +44,26 @@ function moveFrog(e) {
 // Function runs whenever a key up is heard
 document.addEventListener("keyup", moveFrog);
 
-// function moves both logs and cars
-function autoMoveELements() {
+// function moves both logs and car
+function autoMoveElements() {
+  // every time its called reduct from timer
+  currentTime--;
+  timeLeftDisplay.textContent = currentTime;
   // grabbing all log left divs, passing into moveLogleft function
-  logsleft.forEach((logLeft) => moveLogLeft(logLeft));
+  logsLeft.forEach((logLeft) => moveLogLeft(logLeft));
   logsRight.forEach((logRight) => moveLogRight(logRight));
   carsLeft.forEach((carLeft) => moveCarLeft(carLeft));
   carsRight.forEach((carRight) => moveCarRight(carRight));
+  lose();
+  win();
 }
+// // checking for a loser every second
+// function checkOutComes() {
+//   lose();
+//   win();
+// }
 
+//
 function moveLogLeft(logLeft) {
   // looking for true statements
   switch (true) {
@@ -147,5 +160,31 @@ function moveCarRight(carRight) {
   }
 }
 
+function lose() {
+  if (
+    squares[currentIndex].classList.contains("c1") ||
+    squares[currentIndex].classList.contains("l4") ||
+    squares[currentIndex].classList.contains("l5") ||
+    currentTime <= 0
+  ) {
+    resultDisplay.textContent = "You are a total loser!";
+    //stop running autoMoveElements when lsoe condiction met and his a c1 et
+    clearInterval(timerId);
+    clearInterval(outcomeTimerId);
+    squares[currentIndex].classList.remove("frog");
+    document.removeEventListener("keyup", moveFrog);
+  }
+}
+
+function win() {
+  if (squares[currentIndex].classList.contains("ending-block")) {
+    resultDisplay.textContent = "You Win!";
+    clearInterval(timerId);
+    // clearInterval(outcomeTimerId);
+
+    document.removeEventListener("keyup", moveFrog);
+  }
+}
+
 // running fucntion every second
-setInterval(autoMoveELements, 1000);
+timerId = setInterval(autoMoveElements, 1000);
