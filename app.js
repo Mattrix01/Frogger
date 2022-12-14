@@ -12,7 +12,7 @@ const width = 9;
 let timerId;
 let outcomeTimerId;
 let currentTime = 20;
-console.log(squares);
+// console.log(squares);
 
 // passing through event into function (e) seeing which key
 function moveFrog(e) {
