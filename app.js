@@ -4,6 +4,9 @@ const StartPauseButton = document.querySelector("start-pause-button");
 const squares = document.querySelectorAll(".grid div");
 const logsleft = document.querySelectorAll(".log-left");
 const logsRight = document.querySelectorAll(".log-right");
+const carsLeft = document.querySelectorAll(".car-left");
+const carsRight = document.querySelectorAll(".car-right");
+
 let currentIndex = 76;
 const width = 9;
 console.log(squares);
@@ -39,10 +42,13 @@ function moveFrog(e) {
 // Function runs whenever a key up is heard
 document.addEventListener("keyup", moveFrog);
 
-function autoMoveLogs() {
+// function moves both logs and cars
+function autoMoveELements() {
   // grabbing all log left divs, passing into moveLogleft function
   logsleft.forEach((logLeft) => moveLogLeft(logLeft));
   logsRight.forEach((logRight) => moveLogRight(logRight));
+  carsLeft.forEach((carLeft) => moveCarLeft(carLeft));
+  carsRight.forEach((carRight) => moveCarRight(carRight));
 }
 
 function moveLogLeft(logLeft) {
@@ -74,7 +80,7 @@ function moveLogLeft(logLeft) {
 }
 
 // same for logs right divs, going opposite way
-function moveLogLeft(logRight) {
+function moveLogRight(logRight) {
   // looking for true statements
   switch (true) {
     case logRight.classList.contains("l1"):
@@ -101,4 +107,45 @@ function moveLogLeft(logRight) {
   }
 }
 
-setInterval(autoMoveLogs, 1000);
+function moveCarLeft(carLeft) {
+  // looking for true statements
+  switch (true) {
+    //checking if log left div contains class of l1 etc.
+    case carLeft.classList.contains("c1"):
+      carLeft.classList.remove("c1");
+      carLeft.classList.add("c2");
+      break;
+    // if contains l2, remove l2 and add l3 and so on...
+    case carLeft.classList.contains("c2"):
+      carLeft.classList.remove("c2");
+      carLeft.classList.add("c3");
+      break;
+    case carLeft.classList.contains("c3"):
+      carLeft.classList.remove("c3");
+      carLeft.classList.add("c1");
+      break;
+  }
+}
+
+function moveCarRight(carRight) {
+  // looking for true statements
+  switch (true) {
+    //checking if log left div contains class of l1 etc.
+    case carRight.classList.contains("c1"):
+      carRight.classList.remove("c1");
+      carRight.classList.add("c3");
+      break;
+    // if contains l2, remove l2 and add l3 and so on...
+    case carRight.classList.contains("c2"):
+      carRight.classList.remove("c2");
+      carRight.classList.add("c1");
+      break;
+    case carRight.classList.contains("c3"):
+      carRight.classList.remove("c3");
+      carRight.classList.add("c2");
+      break;
+  }
+}
+
+// running fucntion every second
+setInterval(autoMoveELements, 1000);
