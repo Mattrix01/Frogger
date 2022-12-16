@@ -1,65 +1,62 @@
-/* button start */
-/* .video-game-button {
-  text-shadow: 1px 1px pink, -1px -1px maroon;
+@import url("https://fonts.googleapis.com/css?family=Montserrat:600&display=swap");
 
-  line-height: 1.5em;
-  text-align: center;
-  display: inline-block;
-  width: 1.5em;
-  -webkit-border-radius: 0.75em;
-  -moz-border-radius: 0.75em;
-  -o-border-radius: 0.75em;
-  border-radius: 0.75em;
-  background-color: red;
-  -webkit-box-shadow: 0 0.2em maroon;
-  -moz-box-shadow: 0 0.2em maroon;
-  -o-box-shadow: 0 0.2em maroon;
-  box-shadow: 0 0.2em maroon;
-  color: red;
-  margin: 5px;
-  background-color: red;
-  background-image: -o-linear-gradient(left top, pink 3%, red 22%, maroon 99%);
-  background-image: -moz-linear-gradient(
-    left top,
-    pink 3%,
-    red 22%,
-    maroon 99%
-  );
-  background-image: -webkit-linear-gradient(
-    left top,
-    pink 3%,
-    red 22%,
-    maroon 99%
-  );
-  background-image: linear-gradient(left top, pink 3%, red 22%, maroon 99%);
-  cursor: pointer;
-  padding-left: 5px;
-}
-.start-btn {
-  text-align: center;
-  display: inline-block;
-  margin: 5px;
-  font-weight: bold;
-  padding: 10px 0 10px 10px;
-  background-color: lightgray;
-  text-shadow: -1px -1px black, 1px 1px white;
-  color: gray;
-  -webkit-border-radius: 7px;
-  -moz-border-radius: 7px;
-  -o-border-radius: 7px;
-  border-radius: 7px;
-  box-shadow: 0 0.2em gray;
-  cursor: pointer;
-}
-.video-game-button:active,
-.start-btn:active {
-  box-shadow: none;
+span {
   position: relative;
-  top: 0.2em;
-} */
+  display: inline-flex;
+  width: 180px;
+  height: 55px;
+  margin: 0 15px;
+  perspective: 1000px;
+}
+span a {
+  font-size: 19px;
+  letter-spacing: 1px;
+  transform-style: preserve-3d;
+  transform: translateZ(-25px);
+  transition: transform 0.25s;
+  font-family: "Montserrat", sans-serif;
+}
+span a:before,
+span a:after {
+  position: absolute;
+  content: "START/PAUSE";
+  height: 55px;
+  width: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid black;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+span a:before {
+  color: #fff;
+  background: #000;
+  transform: rotateY(0deg) translateZ(25px);
+}
+span a:after {
+  color: #000;
+  transform: rotateX(90deg) translateZ(25px);
+}
+span a:hover {
+  transform: translateZ(-25px) rotateX(-90deg);
+}
+
 /* button end */
+body {
+  font-family: "Ubuntu", sans-serif;
+  font-family: "Work Sans", sans-serif;
+}
+
+.headerclass {
+  background-image: url("images/head1.png");
+  background-size: cover;
+  background-position: 1rem;
+}
 
 .grid {
+  /* display: grid;
+  place-items: center; */
   border: 1px solid black;
   height: 900px;
   width: 900px;
@@ -70,22 +67,23 @@
   background-size: 100px 100px;
   /* background-repeat: repeat; */
 }
-
+.background {
+}
 .grid div {
   height: 100px;
   width: 100px;
 }
 
 .ending-block {
-  background-color: black;
-  background-image: url("images/office.png");
+  /* background-color: white; */
+  background-image: url("images/office4.png");
   background-size: cover;
-  background-position: -10px;
+  background-position: -12px;
 }
 
 .starting-block {
-  background-color: black;
-  background-image: url("images/home.png");
+  /* background-color: black; */
+  background-image: url("images/home3.png");
   background-size: cover;
 }
 
@@ -122,9 +120,22 @@
   position: relative;
 }
 
-/* https://www.pngwing.com/en/free-png-betfx/download */
-
 .center {
   text-align: center;
   font-family: "Courier New", Courier, monospace;
+}
+
+.blink_me {
+  color: red;
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.spacer {
+  margin-bottom: 10px;
 }

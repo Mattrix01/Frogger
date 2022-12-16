@@ -6,6 +6,7 @@ const logsLeft = document.querySelectorAll(".log-left");
 const logsRight = document.querySelectorAll(".log-right");
 const carsLeft = document.querySelectorAll(".car-left");
 const carsRight = document.querySelectorAll(".car-right");
+const refreshButton = document.querySelector("#refresh-button");
 
 let currentIndex = 76;
 const width = 9;
@@ -200,3 +201,9 @@ startPauseButton.addEventListener("click", () => {
     document.addEventListener("keyup", moveFrog);
   }
 });
+
+refreshButton.addEventListener("click", refresh);
+
+function refresh() {
+  window.location.reload();
+}
