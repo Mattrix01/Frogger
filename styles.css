@@ -65,6 +65,10 @@
   width: 900px;
   display: flex;
   flex-wrap: wrap;
+  background-color: white;
+  background-image: url("images/pave6.png");
+  background-size: 100px 100px;
+  /* background-repeat: repeat; */
 }
 
 .grid div {
@@ -73,36 +77,54 @@
 }
 
 .ending-block {
-  background-color: red;
+  background-color: black;
+  background-image: url("images/office.png");
+  background-size: cover;
+  background-position: -10px;
 }
 
 .starting-block {
-  background-color: blue;
+  background-color: black;
+  background-image: url("images/home.png");
+  background-size: cover;
 }
 
 .l1,
 .l2,
 .l3 {
-  background-color: rgb(139, 44, 44);
+  background-color: grey;
+  background-image: url("images/train4.png"), url("images/rails.png");
+  background-size: cover;
+  background-position: 7rem;
 }
 
 .l4,
 .l5 {
-  background-color: lightblue;
+  background-color: grey;
+  background-image: url("images/rails.png");
+  background-size: cover;
 }
 .c1 {
-  background-color: black;
-}
-
-.c2,
-.c3 {
-  background-color: lightgrey;
-}
-
-.frog {
-  /* background-color: blue; */
-  background-image: url("images/froggy.png");
+  background-image: url("images/begger.png");
   background-size: cover;
 }
 
+/* .c2,
+.c3 {
+  background-image: url("images/path2.png");
+  background-size: cover;
+} */
+
+.frog {
+  /* background-color: blue; */
+  background-image: url("images/man1.png");
+  background-size: cover;
+  position: relative;
+}
+
 /* https://www.pngwing.com/en/free-png-betfx/download */
+
+.center {
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+}
