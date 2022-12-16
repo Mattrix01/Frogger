@@ -167,7 +167,7 @@ function lose() {
     squares[currentIndex].classList.contains("l5") ||
     currentTime <= 0
   ) {
-    resultDisplay.textContent = "You are a total loser!";
+    resultDisplay.textContent = "You are sacked!";
     //stop running autoMoveElements when lsoe condiction met and his a c1 et
     clearInterval(timerId);
     clearInterval(outcomeTimerId);
@@ -178,7 +178,7 @@ function lose() {
 
 function win() {
   if (squares[currentIndex].classList.contains("ending-block")) {
-    resultDisplay.textContent = "You Win!";
+    resultDisplay.textContent = "You made it to work!";
     clearInterval(timerId);
     clearInterval(outcomeTimerId);
 
@@ -206,4 +206,5 @@ refreshButton.addEventListener("click", refresh);
 
 function refresh() {
   window.location.reload();
+  alert("Don't be late!");
 }
