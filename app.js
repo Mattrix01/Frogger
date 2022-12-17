@@ -172,6 +172,7 @@ function lose() {
     clearInterval(timerId);
     clearInterval(outcomeTimerId);
     squares[currentIndex].classList.remove("frog");
+    squares[currentIndex].classList.add("dead");
     document.removeEventListener("keyup", moveFrog);
   }
 }

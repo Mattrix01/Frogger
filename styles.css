@@ -175,3 +175,7 @@ body {
 .button-24:active {
   opacity: 0.5;
 }
+.dead {
+  background-image: url("images/rip.png");
+  background-size: cover;
+}
